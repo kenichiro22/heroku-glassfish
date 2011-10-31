@@ -9,10 +9,20 @@
     <version>1.0</version>
     <dependencies>
         <dependency>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-servlet</artifactId>
-            <version>7.4.5.v20110725</version>
+            <groupId>org.glassfish.extras</groupId>
+            <artifactId>glassfish-embedded-all</artifactId>
+            <version>3.1</version>
         </dependency>
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-server</artifactId>
+            <version>1.9</version>
+        </dependency>
+        <!--<dependency>-->
+        <!--<groupId>org.eclipse.jetty</groupId>-->
+        <!--<artifactId>jetty-servlet</artifactId>-->
+        <!--<version>7.4.5.v20110725</version>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
@@ -53,6 +63,10 @@
             </plugin>
         </plugins>
     </build>
-
-
+    <repositories>
+        <repository>
+            <id>glassfish-releases</id>
+            <url>http://download.java.net/maven/glassfish</url>
+        </repository>
+    </repositories>
 </project>
