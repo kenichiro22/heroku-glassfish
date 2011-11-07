@@ -3,27 +3,15 @@ import org.glassfish.embeddable.GlassFishProperties;
 import org.glassfish.embeddable.GlassFishRuntime;
 import org.glassfish.embeddable.archive.ScatteredArchive;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.File;
-import java.io.IOException;
+import org.glassfish.embeddable.Deployer;
 
 /**
- * Created by IntelliJ IDEA.
- * User: ktana
- * Date: 11/10/26
- * Time: 23:37
- * To change this template use File | Settings | File Templates.
+ * Bootstrap class
+ * 
+ * @author kenichiro22
  */
-public class HelloWorld extends HttpServlet {
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
-        resp.getWriter().print("Hello from Java!\n");
-    }
-
+public class Main{
     public static void main(String[] args) throws Exception {
         String port = System.getenv("PORT");
         port = port != null ? port : "8080";
@@ -36,11 +24,9 @@ public class HelloWorld extends HttpServlet {
         File webRoot = new File("src/main/webapp");
         File classRoot = new File("target", "classes");
 
-        org.glassfish.embeddable.Deployer deployer = glassfish.getDeployer();
+        Deployer deployer = glassfish.getDeployer();
         ScatteredArchive archive = new ScatteredArchive("hello", ScatteredArchive.Type.WAR, webRoot);
         archive.addClassPath(classRoot);
         deployer.deploy(archive.toURI());
-
     }
-
 }
