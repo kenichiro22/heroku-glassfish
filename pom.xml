@@ -53,7 +53,7 @@
                             <assembleDirectory>target</assembleDirectory>
                             <programs>
                                 <program>
-                                    <mainClass>HelloWorld</mainClass>
+                                    <mainClass>Main</mainClass>
                                     <name>webapp</name>
                                 </program>
                             </programs>
